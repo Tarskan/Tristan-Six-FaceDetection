@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tristan.Six.FaceDetection", "Tristan.Six.FaceDetection\Tristan.Six.FaceDetection.csproj", "{30D366C8-8B6E-4169-A9D9-0BB1D09E23EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tristan.Six.FaceDetection.Tests", "Tristan.Six.FaceDetection.Tests\Tristan.Six.FaceDetection.Tests.csproj", "{DE5D23D8-0D80-4A73-8DD8-52E6229A9428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tristan.Six.FaceDetection.Console", "Tristan.Six.FaceDetection.Console\Tristan.Six.FaceDetection.Console.csproj", "{AF07CA5A-67F6-4836-B76F-D9B7BCF8EBFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tristan.Six.FaceDetection.WebApi", "Tristan.Six.FaceDetection.WebApi\Tristan.Six.FaceDetection.WebApi.csproj", "{61B8BDBB-3FF5-4349-9F2B-494A582F4189}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30D366C8-8B6E-4169-A9D9-0BB1D09E23EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30D366C8-8B6E-4169-A9D9-0BB1D09E23EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30D366C8-8B6E-4169-A9D9-0BB1D09E23EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30D366C8-8B6E-4169-A9D9-0BB1D09E23EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5D23D8-0D80-4A73-8DD8-52E6229A9428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5D23D8-0D80-4A73-8DD8-52E6229A9428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5D23D8-0D80-4A73-8DD8-52E6229A9428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5D23D8-0D80-4A73-8DD8-52E6229A9428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF07CA5A-67F6-4836-B76F-D9B7BCF8EBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF07CA5A-67F6-4836-B76F-D9B7BCF8EBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF07CA5A-67F6-4836-B76F-D9B7BCF8EBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF07CA5A-67F6-4836-B76F-D9B7BCF8EBFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B8BDBB-3FF5-4349-9F2B-494A582F4189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B8BDBB-3FF5-4349-9F2B-494A582F4189}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B8BDBB-3FF5-4349-9F2B-494A582F4189}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B8BDBB-3FF5-4349-9F2B-494A582F4189}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
