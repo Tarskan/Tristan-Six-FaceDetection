@@ -1,0 +1,18 @@
+FROM mcr.microsoft.com/dotnet/runtime:6.0 AS base
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["Tristan.Six.FaceDetection.Tests/Tristan.Six.FaceDetection.Tests.csproj", "Tristan.Six.FaceDetection.Tests/"]
+RUN dotnet restore "Tristan.Six.FaceDetection.Tests/Tristan.Six.FaceDetection.Tests.csproj"
+COPY . .
+WORKDIR "/src/Tristan.Six.FaceDetection.Tests"
+RUN dotnet build "Tristan.Six.FaceDetection.Tests.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Tristan.Six.FaceDetection.Tests.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Tristan.Six.FaceDetection.Tests.dll"]

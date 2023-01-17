@@ -1,11 +1,32 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Text.Json;
+using Tristan.Six.FaceDetection;
 
-static void Main(string[] args)
+IList<byte[]> imagesData = new List<byte[]>();
+IList<FaceDetectionResult> detectFaceInScenesResults = new List<FaceDetectionResult>();
+
+if (args.Length == 0)
 {
-    foreach (var detectionResult in detectFaceInScenesResults)
+    System.Console.WriteLine("Il faut donner le path des images !");
+}
+else
+{
+    for (int i = 0; i < args.Length; i++)
     {
-        System.Console.WriteLine($"Points" + $"{JsonSerializer.Serialize(detectionResult.Points)}");
+        try
+        {
+            var imageData = await File.ReadAllBytesAsync(args[i]);
+            imagesData.Add(imageData);
+        }
+        catch (FileNotFoundException e)
+        {
+            System.Console.WriteLine("Le fichier " + e.FileName + " n'existe pas !");
+        }
     }
+}
+
+foreach (var detectionResult in detectFaceInScenesResults)
+{ 
+    System.Console.WriteLine($"Points" + $"{JsonSerializer.Serialize(detectionResult.Points)}");
 }

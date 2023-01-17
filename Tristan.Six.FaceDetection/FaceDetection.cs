@@ -4,53 +4,25 @@ using OpenCvSharp;
 namespace Tristan.Six.FaceDetection;
 
 public class FaceDetection {
-    public IList<ObjectDetectionResult> DetectInScenes(IList<byte[]> imagesSceneData) {
-        // TODO implement your code here
-        throw new NotImplementedException();
-    }
-    private FaceDetectionResult FaceDetectionInScene(byte[] imageScr)
+    
+    public FaceDetectionResult DetectInScene(byte[] imageData)
     {
-        var pathClassifier = Path.Combine(GetExecutingPath(),
-            "haarcascade_frontalface_default.xml");
-        using var cascade = new CascadeClassifier(pathClassifier);
-        Mat result;
-        using var src = Mat.FromImageData(imageScr);
-        using var gray = new Mat();
-        result = src.Clone();
-        Cv2.CvtColor(src, gray, ColorConversionCodes.BGR2GRAY);
-        // Detect faces
-        var faces = cascade.DetectMultiScale(
-            gray, 2, 2, HaarDetectionTypes.ScaleImage, new Size(50, 50));
-        // Render all detected faces
-        foreach (var face in faces)
+        return new FaceDetectionResult(imageData);
+    }
+    public IList<FaceDetectionResult> DetectInScenes(IList<byte[]> imagesSceneData) {
+        IList<FaceDetectionResult> listImage = new List<FaceDetectionResult>();
+        var jobs = new List<Task>();
+        foreach (var image in imagesSceneData)
         {
-            var center = new Point
-            {
-                X = (int)(face.X + face.Width * 0.5),
-                Y = (int)(face.Y + face.Height * 0.5)
-            };
-            var axes = new Size
-            {
-                Width = (int)(face.Width * 0.5),
-                Height = (int)(face.Height * 0.5)
-            };
-            Cv2.Ellipse(result, center, axes, 0, 0, 360, new Scalar(255, 0, 255), 4);
-            
+            var task = Task.Run(() => listImage.Add(new FaceDetectionResult(image));
+            jobs.Add(task);
         }
-        var imageResult = result.ToBytes();
-        return new FaceDetectionResult
-        {
-            ImageData = imageResult,
-            Points = faces.Select(point => new ObjectDetectionPoint { X = point.X, Y =
-                point.Y }).ToList()
-        };
+
+        Task.WaitAll(jobs.ToArray());
+
+        return listImage;
     }
-    private static string GetExecutingPath()
-    {
-        var executingAssemblyPath = Assembly.GetExecutingAssembly().Location;
-        var executingPath = Path.GetDirectoryName(executingAssemblyPath);
-        return executingPath;
-    }
+    
 }
 
 
