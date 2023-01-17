@@ -25,10 +25,15 @@ public class FaceDetectionController : ControllerBase
         using var sceneMemoryStream = new MemoryStream();
         sceneSourceStream.CopyTo(sceneMemoryStream);
         var imageSceneData = sceneMemoryStream.ToArray();
-        // Your implementation code
-        //throw new NotImplementedException();
+
         // La méthode ci-dessous permet de retourner une image depuis un tableau de bytes
-        var imageData = new bytes[];
+        var imageData = new byte[imageSceneData.Length];
+
+        for (int i = 0; i < imageData.Length; i++)
+        {
+            imageData[i] = imageSceneData[i];
+        }
+        imageData = imageSceneData;
         return File(imageData, "image/png");
     }
 }

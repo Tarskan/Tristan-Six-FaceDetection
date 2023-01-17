@@ -4,10 +4,8 @@ using OpenCvSharp;
 namespace Tristan.Six.FaceDetection;
 
 public class FaceDetection {
-    public IList<ObjectDetectionResult> DetectInScenes(IList<byte[]>
-        imagesSceneData)
-    {
-// TODO implement your code here
+    public IList<ObjectDetectionResult> DetectInScenes(IList<byte[]> imagesSceneData) {
+        // TODO implement your code here
         throw new NotImplementedException();
     }
     private FaceDetectionResult FaceDetectionInScene(byte[] imageScr)

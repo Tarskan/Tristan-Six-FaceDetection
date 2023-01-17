@@ -2,7 +2,10 @@
 
 using System.Text.Json;
 
-foreach (var detectionResult in detectFaceInScenesResults)
+static void Main(string[] args)
 {
-    System.Console.WriteLine($"Points" + $"{JsonSerializer.Serialize(detectionResult.Points)}");
-} 
+    foreach (var detectionResult in detectFaceInScenesResults)
+    {
+        System.Console.WriteLine($"Points" + $"{JsonSerializer.Serialize(detectionResult.Points)}");
+    }
+}
